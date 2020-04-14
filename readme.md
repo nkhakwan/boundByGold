@@ -1,12 +1,12 @@
-# _Mr. Roboger's Neighborhood_
+# _My Plate_
 
-#### April 13rd, 2020
+#### April 14rd, 2020
 
 ## Description
 
-_This site returns the user's inputs with silly words/phrases if their input contains a 1, 2, or 3_
+_This template creates a specialized environment_
 
-_This site is already linked to an index.html, bootstrap.css(4.4.1), styles.css, jQuery.js(3.4.1), and scripts.js._
+_This site is already linked to an index.html, styles.css, jQuery.js(3.4.1), scripts.js., main.js, jest, babel, lint, webpack, json, & gitignore_
 
 ## Setup/Installation Requirements
 
@@ -42,27 +42,23 @@ git clone {link to repository}
 ## Specs
 
 ### Behavior Driven Development Spec List
-#### Mr. Roboger's Neighborhood
+#### My Plate
 |                          Behavior                          | Input  | Output  |
 | :--------------------------------------------------------: | :----: | :-----: |
-| The program returns a range of numbers from 0 to the user's input in an array | '4' | '0, 1, 2, 3, 4'  |
-| The program replaces one with "Beep" | '1' | 'Beep' |
-| The program replaces two with "Boop" | '2' | 'Boop' |
-| The program replaces three with "Won't you be my neighbor?" | '3' | 'Won't you be my neighbor?' |
-| Exceptions to the rules | ' ' | ' ' |
-| The program replaces any number containing one with "Beep" | '1' , '13' | 'Beep' , 'Beep' |  
-| The program replaces any number containing two with "Boop" | '2' , '21' | 'Boop' , 'Boop' |
-| The program replaces any number containing three with "Won't you be my neighbor?" | '3' , '32' | 'Won't you be my neighbor?' , 'Won't you be my neighbor?' |
+| The program  | '' | ''  |
+| The program  | '' | '' |
+| The program  | '' | '' |
+
 
 
 ---
 ## Known Bugs
 
-_N/A_ - 4/13/2020
+_N/A_ - 4/14/2020
 
 ## gh-pages
 
-WiseFool92.github.io/neighborhood
+WiseFool92.github.io/my-plate
 
 ## Support
 
