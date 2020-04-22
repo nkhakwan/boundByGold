@@ -1,6 +1,7 @@
 import { pingPong } from './ping-pong';
 import $ from 'jquery';
 import './styles.css';
+import stockPuppyPhoto from './assets/images/puppy.jpg';
 
 $(document).ready(function() {
   $('#ping-pong-form').submit(function(event) {
@@ -11,10 +12,9 @@ $(document).ready(function() {
       $('#solution').append("<li>" + element + "</li>");
     });
   });
-});
+  
+  $("#thing").html(`<img src=${stockPuppyPhoto} />`);
 
-
-$(document).ready(function() {
   $('#weatherLocation').click(function() {
     const city = $('#location').val();
     $('#location').val("");
