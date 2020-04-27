@@ -1,7 +1,7 @@
 export class JobBoard {
   constructor (start) {
     this.start = start;
-  }
+  };
 
   werewolf() {
     let numberOfWolvesContracts = randomGen(3);
@@ -44,57 +44,58 @@ export class JobBoard {
   };
 
   manhunterContract() {
-    let numberOfAmbushContracts = randomGen(2);
-    let numberOfGuards = [0][0];
-    for (let i=1; i<numberOfAmbushContracts.length+1; i=i+1){
-      numberOfGuards[0][i] = randomGen(9);
-      numberOfGuards[1][i] = (numberOfGuards[0][i]*this.randomGen(5))+500;
+    let numberOfManhunterContracts = randomGen(4);
+    let numberOfManhunters = [0][0];
+    for (let i=1; i<numberOfManhunterContracts.length+1; i=i+1){
+      numberOfManhunters[0][i] = randomGen(10);
+      numberOfManhunters[1][i] = (numberOfManhunters[0][i]*this.randomGen(5))+750;
     }
-    return numberOfGuards;
+    return numberOfManhunters;
   };
 
-  guardPatrolContract() {
-    let numberOfAmbushContracts = randomGen(2);
-    let numberOfGuards = [0][0];
-    for (let i=1; i<numberOfAmbushContracts.length+1; i=i+1){
-      numberOfGuards[0][i] = randomGen(9);
-      numberOfGuards[1][i] = (numberOfGuards[0][i]*this.randomGen(5))+500;
+  soldierContract() {
+    let numberOfSoldierContracts = randomGen(3);
+    let numberOfSoldiers = [0][0];
+    for (let i=1; i<numberOfSoldierContracts.length+1; i=i+1){
+      numberOfSoldiers[0][i] = randomGen(12);
+      numberOfSoldiers[1][i] = (numberOfSoldiers[0][i]*this.randomGen(7))+1000;
     }
-    return numberOfGuards;
+    return numberOfSoldiers;
   };
 
   ogreContract() {
-    let numberOfAmbushContracts = randomGen(2);
-    let numberOfGuards = [0][0];
-    for (let i=1; i<numberOfAmbushContracts.length+1; i=i+1){
-      numberOfGuards[0][i] = randomGen(9);
-      numberOfGuards[1][i] = (numberOfGuards[0][i]*this.randomGen(5))+500;
+    let numberOfOgreContracts = randomGen(2);
+    let numberOfOgres = [0][0];
+    for (let i=1; i<numberOfOgreContracts.length+1; i=i+1){
+      numberOfOgres[0][i] = randomGen(8);
+      numberOfOgres[1][i] = (numberOfOgres[0][i]*this.randomGen(3))+1500;
     }
-    return numberOfGuards;
+    return numberOfOgres;
   };
 
-  mercContract() {
-    let numberOfAmbushContracts = randomGen(2);
-    let numberOfGuards = [0][0];
-    for (let i=1; i<numberOfAmbushContracts.length+1; i=i+1){
-      numberOfGuards[0][i] = randomGen(9);
-      numberOfGuards[1][i] = (numberOfGuards[0][i]*this.randomGen(5))+500;
+  warPartyContract() {
+    let numberOfWarPartyContracts = randomGen(1);
+    let numberOfWarParty = [0][0];
+    for (let i=1; i<numberOfWarPartyContracts.length+1; i=i+1){
+      numberOfWarParty[0][i] = randomGen(15);
+      numberOfWarParty[1][i] = (numberOfWarParty[0][i]*this.randomGen(15))+2500;
     }
-    return numberOfGuards;
+    return numberOfWarParty;
   };
 
-  deathMoney(){
-    this.werewolf = 150;
-    this.goblinCave = 75;
-    this.caravanEscort = 125;
-    this.caravanAmbush = 200;
-    this.manhunterContract = ;
-    this.ogreContract = ;
-    this.mercContract = ;
-  }
+  deathMoney() {
+    this.werewolfDeathMoney = 150;
+    this.goblinCaveDeathMoney = 75;
+    this.caravanEscortDeathMoney = 125;
+    this.caravanAmbushDeathMoney = 200;
+    this.manhunterContractDeathMoney = 350;
+    this.guardPatrolContractDeathMoney = 425;
+    this.ogreContractDeathMoney = 500;
+    this.mercContractDeathMoney = 750;
+  };
 
-  randomGen(number){
+  randomGen(number) {
     return Math.ceil(Math.random() * number);
-  }
+  };
   
 }
