@@ -1,10 +1,10 @@
-# _My Plate_
+# _Bound by Gold_
 
-#### April 14rd, 2020
+#### April 27rd, 2020
 
 ## Description
 
-_This template creates a specialized environment_
+_This is a 2D text & picture based rpg simulation game where you control a mercenary company_
 
 _This site is already linked to an index.html, styles.css, jQuery.js(3.4.1), scripts.js., main.js, jest, babel, lint, webpack, json, & gitignore_
 
@@ -42,7 +42,7 @@ git clone {link to repository}
 ## Specs
 
 ### Behavior Driven Development Spec List
-#### My Plate
+#### Bound by Gold
 |                          Behavior                          | Input  | Output  |
 | :--------------------------------------------------------: | :----: | :-----: |
 | The program  | '' | ''  |
@@ -54,11 +54,11 @@ git clone {link to repository}
 ---
 ## Known Bugs
 
-_N/A_ - 4/14/2020
+_N/A_ - 4/27/2020
 
 ## gh-pages
 
-WiseFool92.github.io/my-plate
+WiseFool92.github.io/bound-by-gold
 
 ## Support
 
@@ -105,4 +105,4 @@ _Email: watkins92@gmail.com_
 
 This project is licensed under the MIT License
 
-Copyright (c) 2020 **_Nathan Watkins-Hoagland_**
+Copyright (c) 2020 **_Nathan Watkins-Hoagland & Khan Sahab & Matt Stroud & Jason Macie_**
