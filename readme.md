@@ -45,9 +45,11 @@ git clone {link to repository}
 #### Bound by Gold
 |                          Behavior                          | Input  | Output  |
 | :--------------------------------------------------------: | :----: | :-----: |
-| The program  | '' | ''  |
-| The program  | '' | '' |
-| The program  | '' | '' |
+| The user can choose a contract from the job board  | 'Selects contract' | 'Daily mission choosen'  |
+| The user decides how many mercenaries to commit to the contract | '5' | '5 vs whatever the contract specified' |
+| The user engages opponents - their fate is determined through a series of backend dice rolls & armor/weapon/health values | 'Start combat' | 'Combat Report' |
+| The user can purchase additional mercenaries  | 'Purchase @ Barracks' | 'Adds to mercenary total' |
+| The user needs to pay the daily wage of mercenaries  | '10g per merc per day' | '50g for 5 mercs per day' |
 
 
 
