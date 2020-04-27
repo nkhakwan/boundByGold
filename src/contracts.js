@@ -43,11 +43,54 @@ export class JobBoard {
     return numberOfGuards;
   };
 
+  manhunterContract() {
+    let numberOfAmbushContracts = randomGen(2);
+    let numberOfGuards = [0][0];
+    for (let i=1; i<numberOfAmbushContracts.length+1; i=i+1){
+      numberOfGuards[0][i] = randomGen(9);
+      numberOfGuards[1][i] = (numberOfGuards[0][i]*this.randomGen(5))+500;
+    }
+    return numberOfGuards;
+  };
+
+  guardPatrolContract() {
+    let numberOfAmbushContracts = randomGen(2);
+    let numberOfGuards = [0][0];
+    for (let i=1; i<numberOfAmbushContracts.length+1; i=i+1){
+      numberOfGuards[0][i] = randomGen(9);
+      numberOfGuards[1][i] = (numberOfGuards[0][i]*this.randomGen(5))+500;
+    }
+    return numberOfGuards;
+  };
+
+  ogreContract() {
+    let numberOfAmbushContracts = randomGen(2);
+    let numberOfGuards = [0][0];
+    for (let i=1; i<numberOfAmbushContracts.length+1; i=i+1){
+      numberOfGuards[0][i] = randomGen(9);
+      numberOfGuards[1][i] = (numberOfGuards[0][i]*this.randomGen(5))+500;
+    }
+    return numberOfGuards;
+  };
+
+  mercContract() {
+    let numberOfAmbushContracts = randomGen(2);
+    let numberOfGuards = [0][0];
+    for (let i=1; i<numberOfAmbushContracts.length+1; i=i+1){
+      numberOfGuards[0][i] = randomGen(9);
+      numberOfGuards[1][i] = (numberOfGuards[0][i]*this.randomGen(5))+500;
+    }
+    return numberOfGuards;
+  };
+
   deathMoney(){
     this.werewolf = 150;
     this.goblinCave = 75;
     this.caravanEscort = 125;
     this.caravanAmbush = 200;
+    this.manhunterContract = ;
+    this.ogreContract = ;
+    this.mercContract = ;
   }
 
   randomGen(number){
