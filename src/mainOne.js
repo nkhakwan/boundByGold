@@ -3,10 +3,9 @@ import './styles.css';
 import { JobBoard } from './contracts.js';
 
 $(document).ready(function () {
-  let jobBoard = new JobBoard;
   $('#gameStart').click(function () {
     console.log(`we are in click function`);
-
+    let jobBoard = new JobBoard;
     jobBoard.callOurFunctions();
 
     for (let i = 0; i < 8; i = i + 1) {
@@ -71,50 +70,10 @@ $(document).ready(function () {
 
   });
 
-  $(".container").on("click", ".scb", function () {
-    let i = this.id.split(",");
-    let a = i[0];
-    let b = i[1];
+  //$(".container").on("click", ".scb", function () {
 
-
-    jobBoard.contractClicked[0] = jobBoard.ourThreeDimentionalArray[a][0][b];
-    jobBoard.contractClicked[1] = jobBoard.ourThreeDimentionalArray[a][1][b];
-    console.log(jobBoard.ourThreeDimentionalArray[a][0][b]);
-    console.log(jobBoard.ourThreeDimentionalArray[a][1][b]);
-    console.log(`${jobBoard.contractClicked[0]} was the first value and ${jobBoard.contractClicked[1]}`);
-
-    jobBoard.contractClicked[0] = jobBoard.ourThreeDimentionalArray[a][0][b];
-    jobBoard.contractClicked[1] = (jobBoard.ourThreeDimentionalArray[a][1][b]);
-    console.log(a);
-    if (a == 0) {
-      console.log(a);
-      console.log(jobBoard.ourThreeDimentionalArray[a][1][b]);
-      jobBoard.contractClicked[2] = jobBoard.werewolfDeathMoney;
-    }
-    else if (a == 1) {
-      jobBoard.contractClicked[2] = jobBoard.goblinCaveDeathMoney;
-    }
-    else if (a == 2) {
-      jobBoard.contractClicked[2] = jobBoard.caravanEscortDeathMoney;
-    }
-    else if (a == 3) {
-      jobBoard.contractClicked[2] = jobBoard.caravanAmbushDeathMoney;
-    }
-    else if (a == 4) {
-      jobBoard.contractClicked[2] = jobBoard.manHunterContractDeathMoney;
-    }
-    else if (a == 5) {
-      jobBoard.contractClicked[2] = jobBoard.soldierContractDeathMoney;
-    }
-    else if (a == 6) {
-      jobBoard.contractClicked[2] = jobBoard.ogreContractDeathMoney;
-    }
-    else {
-      jobBoard.contractClicked[2] = jobBoard.warPartyContractDeathMoney;
-    }
-    console.log(jobBoard.contractClicked[0]);
-
-  });
+  // console.log(this.id);
+  // });
 });
 
 //theirNewCode(thierOwnOUtputofHowManySurvived, theirownoutputOnHowManyDied, valueofdeathMone, ValueOfContract)

@@ -10,7 +10,6 @@ export class JobBoard {
     this.soldierContractDeathMoney = 425;
     this.ogreContractDeathMoney = 500;
     this.warPartyContractDeathMoney = 750;
-    this.contractClicked = new Array(3);
   }
 
   callOurFunctions() {
@@ -41,7 +40,7 @@ export class JobBoard {
 
   goblinCave() {
     let numberOfGoblinContracts = this.randomGen(2);
-    //console.log(`our random goblin number is ${numberOfGoblinContracts}`);
+    console.log(`our random goblin number is ${numberOfGoblinContracts}`);
     this.ourThreeDimentionalArray[1] = new Array(2);
     this.ourThreeDimentionalArray[1][0] = new Array(numberOfGoblinContracts);
     this.ourThreeDimentionalArray[1][1] = new Array(numberOfGoblinContracts);
@@ -58,7 +57,7 @@ export class JobBoard {
     this.ourThreeDimentionalArray[2] = new Array(2);
     this.ourThreeDimentionalArray[2][0] = new Array(numberOfEscortContracts);
     this.ourThreeDimentionalArray[2][1] = new Array(numberOfEscortContracts);
-    //console.log(`number of escorst contracts ${numberOfEscortContracts}`);
+    console.log(`number of escorst contracts ${numberOfEscortContracts}`);
     for (let i = 0; i < numberOfEscortContracts; i = i + 1) {
       this.ourThreeDimentionalArray[2][0][i] = this.randomGen(10);
       this.ourThreeDimentionalArray[2][1][i] = this.ourThreeDimentionalArray[2][0][i] * 50;
