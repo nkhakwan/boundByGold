@@ -1,9 +1,11 @@
 import $ from 'jquery';
 import './styles.css';
 import { JobBoard } from './contracts.js';
+import { IncomeStatement } from './incomeStatement.js';
 
 $(document).ready(function () {
   let jobBoard = new JobBoard;
+  let incomeStatement = new IncomeStatement;
   $('#gameStart').click(function () {
     console.log(`we are in click function`);
 
@@ -66,16 +68,13 @@ $(document).ready(function () {
           $("#showOutput7").append(`<li>Enemies present are ${jobBoard.ourThreeDimentionalArray[i][0][l]} knights and the contract is worth ${jobBoard.ourThreeDimentionalArray[i][1][l]}g, with death money valued at ${jobBoard.warPartyContractDeathMoney} gold. <button class="scb warParty" id="${i},${l}">Select Contract</button></li>`);
         }
       }
-
     }
-
   });
 
   $(".container").on("click", ".scb", function () {
     let i = this.id.split(",");
     let a = i[0];
     let b = i[1];
-
 
     jobBoard.contractClicked[0] = jobBoard.ourThreeDimentionalArray[a][0][b];
     jobBoard.contractClicked[1] = jobBoard.ourThreeDimentionalArray[a][1][b];
@@ -113,11 +112,11 @@ $(document).ready(function () {
       jobBoard.contractClicked[2] = jobBoard.warPartyContractDeathMoney;
     }
     console.log(jobBoard.contractClicked[0]);
-
   });
+
+  let theirReturn = theOtherPartyFunction(jobBoard.contractClicked);
+  let ourContractIncome = incomeStatement.calculateIncome(jobBoard.contractClicked, theirReturn);
+  $("#showIncomeEarnedOnContract").html(ourContractIncome);
+
+
 });
-
-//theirNewCode(thierOwnOUtputofHowManySurvived, theirownoutputOnHowManyDied, valueofdeathMone, ValueOfContract)
-//if (missionSuccesfull)
-
-
