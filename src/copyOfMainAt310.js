@@ -8,7 +8,7 @@ import { Mercenary } from './mercenary.js';
 
 function displayArmy(army, mercTier) {
   let output = `<h3>Mercenaries - ${army.length}</h3>`;
-  output += `<h4>Equipment Tier: ${mercTier}</h4><br>`;
+  output += `Equipment Tier: ${mercTier}<br>`;
   for(let i = 0; i < army.length; i++) {
     output += `${army[i].name} <br>`;
   }
@@ -192,9 +192,8 @@ $(document).ready(function () {
       }
     }
     console.log(jobBoard.contractClicked[0]);
-    console.log("Number of enemies: " + filledArray.length);
-    $("#combatlog").text("");
-    combat.combatLog = [];
+    console.log("Number of enemies: " + filledArray);
+    console.log("Combat log: " + combat.combatLog);
 
     incomeStatement.numberOfMercenaries = ourCompany.length;
     let survived = combat.combat(ourCompany, filledArray);
@@ -209,7 +208,6 @@ $(document).ready(function () {
     $("#showIncomeEarnedOnContract").html(ourContractIncome);
 
     $("#combatlog").append("<h3>Combat Log</h3>");
-    console.log(combat.combatLog);
     for (let i = 0; i < combat.combatLog.length; i++) {
       $("#combatlog").append(combat.combatLog[i] + "<br>");
     }

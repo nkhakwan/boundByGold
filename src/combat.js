@@ -36,6 +36,10 @@ export class Combat {
 
   //receive an array of mercanary objects, and a second array of enemy objects to start combat
   combat(mercenaries, enemies) {
+    console.log(mercenaries.length);
+    if (mercenaries.length === 0){
+      this.combatLog.push('<span style="color:#FFFFFF;"Your mercenary company is empty. Please buy more mercenaries.')
+    } else {
     let mcount = 0;
     let ecount = 0;
     //continue combat until either all mercs or enemies are dead
@@ -44,7 +48,7 @@ export class Combat {
       enemies[0].health -= this.attack(mercenaries[mcount], enemies[0]);
       //if they die: display message and remove them from combat
       if (enemies[0].health <= 0) {
-        this.combatLog.push(enemies[0].name + " HAS BEEN SLAIN!");
+        this.combatLog.push(`<span style="color:#FFFFFF;">${enemies[0].name} HAS BEEN SLAIN!`);
         enemies.shift();
         if (ecount > 0) {
           ecount--;
@@ -54,11 +58,11 @@ export class Combat {
         }
       }
       mcount++;
-      this.combatLog.push(`There are ${enemies.length} enemies left.`);
+      this.combatLog.push(`<span style="color:#FFFFFF;">There are ${enemies.length} enemies left.`);
 
       mercenaries[0].health -= this.attack(enemies[ecount], mercenaries[0]);
       if (mercenaries[0].health <= 0) {
-        this.combatLog.push(mercenaries[0].name + " HAS FALLEN!");
+        this.combatLog.push(`<span style="color:#FFFFFF;">${mercenaries[0].name} HAS FALLEN!`);
         mercenaries.shift();
         if (mcount > 0) {
           mcount--;
@@ -67,7 +71,7 @@ export class Combat {
           break;
         }
       }
-      this.combatLog.push(`End of turn. You have ${mercenaries.length} mercenaries left.`);
+      this.combatLog.push(`<span style="color:#FFFFFF;">End of turn. You have ${mercenaries.length} mercenaries left.`);
       ecount++;
       if (enemies.length === 1 || ecount === enemies.length - 1) {
         ecount = 0;
@@ -81,6 +85,7 @@ export class Combat {
     } else {
       this.combatLog.push(`<span style="color:#FF0000;"><strong>All of your mercenaries were defeated. Enemies remaining: ${enemies.length}.</strong></span>`);
     }
+  }
     console.log(this.combatLog);
     return mercenaries;
   }

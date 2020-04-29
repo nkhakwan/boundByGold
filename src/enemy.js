@@ -15,7 +15,7 @@ export class Enemy {
       this.weapon = bronze;
       this.armor = leather;
     }
-    if (name === "bandits") {
+    if (name === "bandit") {
       this.weapon = wood;
       this.armor = cloth;
     }
@@ -26,6 +26,10 @@ export class Enemy {
     if (name === "manhunter") {
       this.armor = steelA;
       this.weapon = wood;
+    }
+    if (name === "soldier") {
+      this.armor = chainmail;
+      this.weapon = iron;
     }
     if (name === "knight") {
       this.armor = steelA;

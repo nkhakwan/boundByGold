@@ -2,14 +2,14 @@ export class JobBoard {
 
   constructor() {
     this.ourThreeDimentionalArray = new Array(7);
-    this.werewolfDeathMoney = 150;
-    this.goblinCaveDeathMoney = 75;
-    this.caravanEscortDeathMoney = 125;
-    this.caravanAmbushDeathMoney = 200;
-    this.manHunterContractDeathMoney = 350;
-    this.soldierContractDeathMoney = 425;
-    this.ogreContractDeathMoney = 500;
-    this.warPartyContractDeathMoney = 750;
+    this.werewolfDeathMoney = 250;
+    this.goblinCaveDeathMoney = 150;
+    this.caravanEscortDeathMoney = 200;
+    this.caravanAmbushDeathMoney = 225;
+    this.manHunterContractDeathMoney = 300;
+    this.soldierContractDeathMoney = 325;
+    this.ogreContractDeathMoney = 375;
+    this.warPartyContractDeathMoney = 500;
     this.contractClicked = new Array(3);
   }
 
