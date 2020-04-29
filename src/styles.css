@@ -53,6 +53,11 @@ h1 {
   overflow-y: scroll;
   float: right;
   height: 600px;
+  text-shadow: 1px 1px 1px black;
+}
+
+#combat-header {
+  color: white;
 }
 
 #army {

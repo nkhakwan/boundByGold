@@ -11,11 +11,13 @@ export class IncomeStatement {
   calculateIncome(contractClicked, mercSurvived) {
     let income = 0;
     if (mercSurvived) {
+      console.log("In calculate if")
       income = contractClicked[1] -
         (this.numberOfMercenaries * this.wage) +
         ((contractClicked[0] - mercSurvived) * contractClicked[2]) -
         ((contractClicked[0] - mercSurvived) * this.deathPayment);
     } else {
+      console.log("In calculate else")
       income = ((contractClicked[0] - mercSurvived) * contractClicked[2]) -
         ((contractClicked[0] - mercSurvived) * this.deathPayment) -
         (this.numberOfMercenaries * this.wage);

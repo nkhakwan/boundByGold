@@ -10,7 +10,7 @@ function displayArmy(army, mercTier) {
   let output = `<h3>Mercenaries - ${army.length}</h3>`;
   output += `<h4>Equipment Tier: ${mercTier}</h4><br>`;
   for(let i = 0; i < army.length; i++) {
-    output += `${army[i].name} <br>`;
+    output += `${army[i].name}<br>`;
   }
   $("#army").html(output);
 }
@@ -20,7 +20,7 @@ $(document).ready(function () {
   let incomeStatement = new IncomeStatement;
   let combat = new Combat;
   let names = ["Hernias the Sad", "Gilbert Greymane", "Willmot Hightower", "Isemberd the Just", "Hameline of the Golden Plains", "Bryant Tykum", "Maximus Decimus Meridius", "Varog un Thuul", "Jareth Ironskin", "Hagalbar af Baggleton", "Tyvik af Montainius", "Renham the Fat", "Jerrick the Prick", "Quintis Veryartus", "Huidemar Greenshield", "Richemanus of Butterhall", "Neale the Strong", "Acur the Dimwitted", "Igor Malculinus", "Tamas the Tiny", "Federyc the Ulfhednar", "Timaeus Garoland", "Hephaeus the Smith", "Phaedrus the Shadow", "Foust the Fairhaired", "Ulrick Von Likteinstein", "Leonitus the Pure", "Marcus Orelious Krasis", "Roger Osprey", "Sir Gwendalin Gant", "Titus Yongrel", "Philip the Tall", "Dunk the Drunk", "Hilder the Brute", "Ulf the Starry Eyed", "Krixis the Bull", "Gannocus the Undeafeated", "Rikard the Swift", "Ike of Vundeburg"];
-  let coinBag = 500;
+  let coinBag = 0;
   let ourCompany = [];
   let filledArray = [];
   let mercTier = 0; // 0 wood/cloth - 1 leather/bronze - 2 iron/chainmail - 3 steel/steel
@@ -54,9 +54,10 @@ $(document).ready(function () {
   //============================================================
 
   $('#gameStart').click(function () {
-    console.log(`we are in click function`);
-
+    $("#combatlog").text("");
+    combat.combatLog = [];
     jobBoard.callOurFunctions();
+    incomeStatement.aggregateIncome = 0;
 
     for (let i = 0; i < 8; i = i + 1) {
       if (i === 0) {
@@ -195,6 +196,7 @@ $(document).ready(function () {
     console.log("Number of enemies: " + filledArray.length);
     $("#combatlog").text("");
     combat.combatLog = [];
+    
 
     incomeStatement.numberOfMercenaries = ourCompany.length;
     let survived = combat.combat(ourCompany, filledArray);
@@ -204,18 +206,21 @@ $(document).ready(function () {
     //let ourContractIncome = incomeStatement.calculateIncome(jobBoard.contractClicked, mercSurvived);
     incomeStatement.calculateIncome(jobBoard.contractClicked, mercSurvived); // pl don't remove this line.
     let ourContractIncome = incomeStatement.aggregateIncome; // pl don't remove this line.
+    coinBag = ourContractIncome;
 
     console.log(`Hi we have some income and that is ${ourContractIncome}`);
     $("#showIncomeEarnedOnContract").html(ourContractIncome);
 
-    $("#combatlog").append("<h3>Combat Log</h3>");
-    console.log(combat.combatLog);
+    $("#combatlog").append("<h3 id='combat-header'>Combat Log</h3>");
     for (let i = 0; i < combat.combatLog.length; i++) {
       $("#combatlog").append(combat.combatLog[i] + "<br>");
     }
 
     $("coinBag").html(coinBag);
   });
+
+
+
 
   // console.log("Number of enemies: " + filledArray);
   // console.log("Combat log: " + combat.combatLog);

@@ -38,7 +38,7 @@ export class Combat {
   combat(mercenaries, enemies) {
     console.log(mercenaries.length);
     if (mercenaries.length === 0){
-      this.combatLog.push('<span style="color:#FFFFFF;"Your mercenary company is empty. Please buy more mercenaries.')
+      this.combatLog.push('<span style="color:#FFFFFF;">Your mercenary company is empty. Please buy more mercenaries.</span>');
     } else {
     let mcount = 0;
     let ecount = 0;
