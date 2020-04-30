@@ -7,6 +7,7 @@ import { Enemy } from './enemy.js';
 import { Mercenary } from './mercenary.js';
 
 function displayArmy(army) {
+  let hpcolor;
   let output = `<h3>Mercenaries - ${army.length}</h3>`;
   for (let i = 0; i < army.length; i++) {
     if (army[i].shieldTier === 1) {
@@ -16,7 +17,14 @@ function displayArmy(army) {
     } else if (army[i].shieldTier === 3) {
       output += `<img src="http://pixelartmaker.com/art/ed3356c30a198de.png" style="width: 15px; height: auto;"> `;
     }
-    output += `[${army[i].currentTier}] ${army[i].name}<br>`;
+    if (army[i].health >= 70) {
+      hpcolor = "#5cb85c";
+    } else if (army[i].health >= 40) {
+      hpcolor = "#ff9900";
+    } else {
+      hpcolor = "#FF0000";
+    }
+    output += `[${army[i].currentTier}][<span style="color:${hpcolor};">${army[i].health}</span>] ${army[i].name}<br>`;
   }
   $("#army").html(output);
 }
@@ -41,6 +49,29 @@ $(document).ready(function () {
   //   ourCompany.push(merc);
   // }
   // displayArmy(ourCompany, mercTier);
+
+  $("#healMerc").click(function () {
+    let currentGold = parseInt($("#showIncomeEarnedOnContract").text());
+    if (currentGold >= 50) {
+      if (ourCompany.length > 0) {
+        if (ourCompany[0].health < 100) {
+          currentGold -= 50;
+          incomeStatement.aggregateIncome -= 50;
+          $("#showIncomeEarnedOnContract").text(currentGold);
+          ourCompany[0].health = 100;
+          setTimeout(displayArmy(ourCompany), 500);
+        } else {
+          alert("Your mercenaries are already full health.");
+        }
+
+      } else {
+        alert("You do not have any mercenaries.");
+      }
+
+    } else {
+      alert("You do not have enough gold for that.");
+    }
+  });
 
   $("#buyShield").click(function () {
     let currentGold = parseInt($("#showIncomeEarnedOnContract").text());
@@ -295,28 +326,33 @@ $(document).ready(function () {
 
     $("#combatlog").text("");
 
-    incomeStatement.numberOfMercenaries = ourCompany.length;
-    let survived = combat.combat(ourCompany, filledArray);
-    ourCompany = survived;
-    let mercSurvived = survived.length;
-    //let ourContractIncome = incomeStatement.calculateIncome(jobBoard.contractClicked, mercSurvived);
-    incomeStatement.calculateIncome(jobBoard.contractClicked, mercSurvived); // pl don't remove this line.
-    let ourContractIncome = incomeStatement.aggregateIncome; // pl don't remove this line.
+    if (ourCompany.length > 0) {
+      incomeStatement.numberOfMercenaries = ourCompany.length;
+      let survived = combat.combat(ourCompany, filledArray);
+      ourCompany = survived;
+      let mercSurvived = survived.length;
+      //let ourContractIncome = incomeStatement.calculateIncome(jobBoard.contractClicked, mercSurvived);
+      incomeStatement.calculateIncome(jobBoard.contractClicked, mercSurvived); // pl don't remove this line.
+      let ourContractIncome = incomeStatement.aggregateIncome; // pl don't remove this line.
 
-    if (mercSurvived === 0) {
-      mercTier = 0;
-      shieldTier = 0;
+      if (mercSurvived === 0) {
+        mercTier = 0;
+        shieldTier = 0;
+      }
+      displayArmy(ourCompany);
+
+      $("#showIncomeEarnedOnContract").html(ourContractIncome);
+
+      $("#combatlog").append("<h3 id='combat-header'>Combat Log</h3>");
+      for (let i = 0; i < combat.combatLog.length; i++) {
+        $("#combatlog").append(combat.combatLog[i] + "<br>");
+      }
+
+      $("coinBag").html(coinBag);
+    } else {
+      alert("You don't have any mercenaries.");
     }
-    displayArmy(ourCompany);
 
-    $("#showIncomeEarnedOnContract").html(ourContractIncome);
-
-    $("#combatlog").append("<h3 id='combat-header'>Combat Log</h3>");
-    for (let i = 0; i < combat.combatLog.length; i++) {
-      $("#combatlog").append(combat.combatLog[i] + "<br>");
-    }
-
-    $("coinBag").html(coinBag);
   });
 
 

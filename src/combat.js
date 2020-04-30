@@ -13,7 +13,7 @@ export class Combat {
     roll = Math.floor(Math.random() * 20) + 1;
 
     if (char instanceof Mercenary) {
-      this.color = "#008000";
+      this.color = "#5cb85c";
     } else {
       this.color = "#FF0000";
     }
@@ -81,7 +81,7 @@ export class Combat {
         }
       }
       if (mercenaries.length > 0) {
-        this.combatLog.push(`<span style="color:#008000;"><strong>You won with ${mercenaries.length} mercenaries surviving.</strong></span>`);
+        this.combatLog.push(`<span style="color:#5cb85c;"><strong>You won with ${mercenaries.length} mercenaries surviving.</strong></span>`);
       } else {
         this.combatLog.push(`<span style="color:#FF0000;"><strong>All of your mercenaries were defeated. Enemies remaining: ${enemies.length}.</strong></span>`);
       }
