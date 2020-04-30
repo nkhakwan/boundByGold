@@ -32,21 +32,18 @@ export class JobBoard {
     this.ourThreeDimentionalArray[0][1] = new Array(numberOfWolvesContracts);
     for (let i = 0; i < numberOfWolvesContracts; i = i + 1) {
       this.ourThreeDimentionalArray[0][0][i] = this.randomGen(8);
-      this.ourThreeDimentionalArray[0][1][i] = ((this.randomGen(35) * (this.ourThreeDimentionalArray[0][0][i])) + 500);
+      this.ourThreeDimentionalArray[0][1][i] = ((this.randomGen(45) * (this.ourThreeDimentionalArray[0][0][i])) + 300);
     }
   }
 
   goblinCave() {
     let numberOfGoblinContracts = this.randomGen(2);
-    //console.log(`our random goblin number is ${numberOfGoblinContracts}`);
     this.ourThreeDimentionalArray[1] = new Array(2);
     this.ourThreeDimentionalArray[1][0] = new Array(numberOfGoblinContracts);
     this.ourThreeDimentionalArray[1][1] = new Array(numberOfGoblinContracts);
     for (let i = 0; i < numberOfGoblinContracts; i = i + 1) {
       this.ourThreeDimentionalArray[1][0][i] = this.randomGen(12);
-      //console.log(`we are goblin here ${this.ourThreeDimentionalArray[1][0][i]}`);
-      this.ourThreeDimentionalArray[1][1][i] = this.ourThreeDimentionalArray[1][0][i] * 100;
-      //console.log(`after the second goblin loop ${this.ourThreeDimentionalArray[1][1][i]}`);
+      this.ourThreeDimentionalArray[1][1][i] = this.ourThreeDimentionalArray[1][0][i] * 150;
     }
   }
 
@@ -55,10 +52,9 @@ export class JobBoard {
     this.ourThreeDimentionalArray[2] = new Array(2);
     this.ourThreeDimentionalArray[2][0] = new Array(numberOfEscortContracts);
     this.ourThreeDimentionalArray[2][1] = new Array(numberOfEscortContracts);
-    //console.log(`number of escorst contracts ${numberOfEscortContracts}`);
     for (let i = 0; i < numberOfEscortContracts; i = i + 1) {
       this.ourThreeDimentionalArray[2][0][i] = this.randomGen(10);
-      this.ourThreeDimentionalArray[2][1][i] = this.ourThreeDimentionalArray[2][0][i] * 150;
+      this.ourThreeDimentionalArray[2][1][i] = this.ourThreeDimentionalArray[2][0][i] * 500;
     }
   }
 
@@ -69,7 +65,7 @@ export class JobBoard {
     this.ourThreeDimentionalArray[3][1] = new Array(numberOfAmbushContracts);
     for (let i = 0; i < numberOfAmbushContracts; i = i + 1) {
       this.ourThreeDimentionalArray[3][0][i] = this.randomGen(9);
-      this.ourThreeDimentionalArray[3][1][i] = (this.ourThreeDimentionalArray[3][0][i] * this.randomGen(5)) + 500;
+      this.ourThreeDimentionalArray[3][1][i] = (this.ourThreeDimentionalArray[3][0][i] * this.randomGen(35)) + 675;
     }
   }
 
@@ -80,7 +76,7 @@ export class JobBoard {
     this.ourThreeDimentionalArray[4][1] = new Array(numberOfManhunterContracts);
     for (let i = 0; i < numberOfManhunterContracts; i = i + 1) {
       this.ourThreeDimentionalArray[4][0][i] = this.randomGen(10);
-      this.ourThreeDimentionalArray[4][1][i] = (this.ourThreeDimentionalArray[4][0][i] * this.randomGen(5)) + 750;
+      this.ourThreeDimentionalArray[4][1][i] = (this.ourThreeDimentionalArray[4][0][i] * this.randomGen(35)) + 750;
     }
   }
 
@@ -91,7 +87,7 @@ export class JobBoard {
     this.ourThreeDimentionalArray[5][1] = new Array(numberOfSoldierContracts);
     for (let i = 0; i < numberOfSoldierContracts; i = i + 1) {
       this.ourThreeDimentionalArray[5][0][i] = this.randomGen(12);
-      this.ourThreeDimentionalArray[5][1][i] = (this.ourThreeDimentionalArray[5][0][i] * this.randomGen(7)) + 825;
+      this.ourThreeDimentionalArray[5][1][i] = (this.ourThreeDimentionalArray[5][0][i] * this.randomGen(40)) + 1250;
     }
   }
 
@@ -102,7 +98,7 @@ export class JobBoard {
     this.ourThreeDimentionalArray[6][1] = new Array(numberOfOgreContracts);
     for (let i = 0; i < numberOfOgreContracts; i = i + 1) {
       this.ourThreeDimentionalArray[6][0][i] = this.randomGen(8);
-      this.ourThreeDimentionalArray[6][1][i] = (this.ourThreeDimentionalArray[6][0][i] * this.randomGen(3)) + 850;
+      this.ourThreeDimentionalArray[6][1][i] = (this.ourThreeDimentionalArray[6][0][i] * this.randomGen(40)) + 2000;
     }
   }
 
@@ -113,7 +109,7 @@ export class JobBoard {
     this.ourThreeDimentionalArray[7][1] = new Array(numberOfWarPartyContracts);
     for (let i = 0; i < numberOfWarPartyContracts; i = i + 1) {
       this.ourThreeDimentionalArray[7][0][i] = this.randomGen(15);
-      this.ourThreeDimentionalArray[7][1][i] = (this.ourThreeDimentionalArray[7][0][i] * this.randomGen(15)) + 900;
+      this.ourThreeDimentionalArray[7][1][i] = (this.ourThreeDimentionalArray[7][0][i] * this.randomGen(45)) + 3000;
     }
   }
 

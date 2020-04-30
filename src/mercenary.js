@@ -20,6 +20,7 @@ export class Mercenary {
     this.shield = null;
     this.cost = 50;
     this.currentTier = 0;
+    this.shieldTier = 0;
   }
 
   upgrade(tier) {
@@ -29,11 +30,11 @@ export class Mercenary {
     let leather = new Item("leather", "armor", 0, 5);
     let iron = new Item("iron", "weapon", 40, 0);
     let chainmail = new Item("chainmail", "armor", 0, 10);
-    let steelW = new Item("steel", "armor", 50, 0);
+    let steelW = new Item("steel", "weapon", 50, 0);
     let steelA = new Item("steel", "armor", 0, 15);
-    
+    this.currentTier++;
 
-    switch(tier) {
+    switch (tier) {
       case 1:
         this.weapon = bronze;
         this.armor = leather;
@@ -52,13 +53,23 @@ export class Mercenary {
     }
   }
 
-  equipItem(item) {
-    if (item.type === "weapon") {
-      this.weapon = item;
-    } else if (item.type === "shield") {
-      this.shield = item;
-    } else {
-      this.armor = item;
+  equipShield(tier) {
+    let buckler = new Item("buckler", "shield", 0, 3);
+    let heater = new Item("heater", "shield", 0, 4);
+    let scutum = new Item("scutum", "shield", 0, 5);
+    this.shieldTier++;
+    switch (tier) {
+      case 1:
+        this.shield = buckler;
+        break;
+      case 2:
+        this.shield = heater;
+        break;
+      case 3:
+        this.shield = scutum;
+        break;
+      default:
+        this.shield = null;
     }
   }
 }

@@ -3,9 +3,9 @@
 export class IncomeStatement {
   constructor() {
     this.wage = 50;
-    this.deathPayment = 150;
+    this.deathPayment = 100;
     this.aggregateIncome = 0;
-    this.numberOfMercenaries =0;
+    this.numberOfMercenaries = 0;
   }
 
   calculateIncome(contractClicked, mercSurvived) {
@@ -21,9 +21,9 @@ export class IncomeStatement {
       income = ((contractClicked[0] - mercSurvived) * contractClicked[2]) -
         ((contractClicked[0] - mercSurvived) * this.deathPayment) -
         (this.numberOfMercenaries * this.wage);
-    } 
-    console.log (`Here is the aggregate before current addition ${this.aggregateIncome}`);
-    console.log (`this is the current income ${income}`);
+    }
+    console.log(`Here is the aggregate before current addition ${this.aggregateIncome}`);
+    console.log(`this is the current income ${income}`);
 
     this.aggregateIncome = income + this.aggregateIncome;
     //return income;
