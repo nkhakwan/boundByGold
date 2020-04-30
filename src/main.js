@@ -121,6 +121,7 @@ $(document).ready(function () {
   $("#storyIntro").text("You are an old veteran of many wars. You fought for the royal family “The Kings of Old” who had ruled the land of Izorius for centuries. During the last great war, the royal “Kings of Old” lost their iron grip on the region and lost bloody battle after bloody battle. Until their last stand at Castle Umblai. You were dispatched with twenty of the Kings finest to enact a surgical strike against the opposing force. Tasked with the mission to slay their commanding lord & poison the wells to cause disarray. Poisoning the wells went smoothly as you split your force into 5 groups of 4 and crept about in the dead of night slitting every throat your team encountered. Regrouping on a small hill in the wee hours of dawn you prepare for the approach on the opposing lords tent. An eerie feeling creeps into your bones and you notice that only 3 of the 4 groups are present. In this moment a flood of enemies pour upon you from the shadows.  Amidst the bloody turmoil you and 4 of the twenty managed to escape. It didn’t matter though. You’d kicked the hornets nest. Lord “Redwater ” rallied his force and made the ground quake with boots and siege engines. Quickly crumbling the walls of Castle Umblai. As the dynasty you fought for your entire life crumbles before your very eyes. Any wealth you may have been entitled to washed away. With the King dead every Duke, Baron & Lord began jockeying for power. Needing to survive in this brave new world, rought with instability you turn to the only life you’ve ever known. Forged in Blood & Bound by Gold, the mercenary life for me.");
 
   $('#gameStart').click(function () {
+    filledArray = [];
     $("#storyIntro").hide();
     if (ourCompany.length === 0) {
       for (let i = 0; i < 5; i++) {
@@ -213,15 +214,16 @@ $(document).ready(function () {
       //     }
       //   }
       // }
-    }
 
+    }
   });
 
   //=====================================================================================
   $(".container").on("click", ".scb", function () {
     let i = this.id.split(",");
     let a = i[0];
-    let b = i[1]
+    let b = i[1];
+    console.log(`value of category is ${a} and the number of element is ${b}`);
     combat.combatLog = [];
 
     jobBoard.contractClicked[0] = jobBoard.ourThreeDimentionalArray[a][0][b];
