@@ -2,7 +2,7 @@ export class JobBoard {
 
   constructor() {
     this.ourThreeDimentionalArray = new Array(7);
-    this.werewolfDeathMoney = 75;
+    this.werewolfDeathMoney = 200;
     this.goblinCaveDeathMoney = 50;
     this.caravanEscortDeathMoney = 80;
     this.caravanAmbushDeathMoney = 100;

@@ -2,7 +2,7 @@
 
 export class IncomeStatement {
   constructor() {
-    this.wage = 50;
+    this.wage = 25;
     this.deathPayment = 100;
     this.aggregateIncome = 0;
     this.numberOfMercenaries = 0;

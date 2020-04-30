@@ -1,6 +1,6 @@
 # _Bound by Gold_
 
-#### April 27rd, 2020
+#### April 30th, 2020
 
 ## Description
 
@@ -46,17 +46,18 @@ git clone {link to repository}
 |                          Behavior                          | Input  | Output  |
 | :--------------------------------------------------------: | :----: | :-----: |
 | The user can choose a contract from the job board  | 'Selects contract' | 'Daily mission choosen'  |
-| The user decides how many mercenaries to commit to the contract | '5' | '5 vs whatever the contract specified' |
+| The user can buy mercenaries to commit to the contract | 'Buy Mercenary' | '50g Cost per Merc' |
 | The user engages opponents - their fate is determined through a series of backend dice rolls & armor/weapon/health values | 'Start combat' | 'Combat Report' |
-| The user can purchase additional mercenaries  | 'Purchase @ Barracks' | 'Adds to mercenary total' |
-| The user needs to pay the daily wage of mercenaries  | '10g per merc per day' | '50g for 5 mercs per day' |
+| The user can purchase additional equipment  | 'Purchase Gear', 'Purchase Shields" | 'Adds to current mercenaries' |
+| The user needs to pay the daily wage of mercenaries  | '25g per merc per day' | '50g for 2 mercs per day' |
+| The user has a gold pool to interact with purchases and daily wages | '0' | 'Gold earned from completed contracts' |
 
 
 
 ---
 ## Known Bugs
 
-_N/A_ - 4/27/2020
+_N/A_ - 4/30/2020
 
 ## gh-pages
 
