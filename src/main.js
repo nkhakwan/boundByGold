@@ -9,7 +9,7 @@ import { Mercenary } from './mercenary.js';
 function displayArmy(army, mercTier) {
   let output = `<h3>Mercenaries - ${army.length}</h3>`;
   output += `<h4>Equipment Tier: ${mercTier}</h4><br>`;
-  for(let i = 0; i < army.length; i++) {
+  for (let i = 0; i < army.length; i++) {
     output += `${army[i].name}<br>`;
   }
   $("#army").html(output);
@@ -27,30 +27,47 @@ $(document).ready(function () {
   let mercTier = 0; // 0 wood/cloth - 1 leather/bronze - 2 iron/chainmail - 3 steel/steel
   //let upgradeCosts  = [50, 50, 50, 50];
 
-  for(let i = 0; i < 3; i++) {
+  for (let i = 0; i < 3; i++) {
     let nameIndex = Math.floor(Math.random() * names.length);
     let mercName = names[nameIndex];
     let merc = new Mercenary(mercName);
     ourCompany.push(merc);
   }
   displayArmy(ourCompany, mercTier);
-   
+
   $("#upgradeMerc").click(function () {
-    if(mercTier < 3) {
-      for(let i = 0; i < ourCompany.length; i++) {
-        ourCompany[i].upgrade(mercTier + 1);
+    let currentGold = parseInt($("#showIncomeEarnedOnContract").text());
+    if (currentGold >= 500) {
+      currentGold -= 500;
+      incomeStatement.aggregateIncome -= 500;
+      $("#showIncomeEarnedOnContract").text(currentGold);
+      if (mercTier < 3) {
+        for (let i = 0; i < ourCompany.length; i++) {
+          ourCompany[i].upgrade(mercTier + 1);
+        }
+        mercTier++;
+        displayArmy(ourCompany, mercTier);
       }
-      mercTier++;
-      displayArmy(ourCompany, mercTier);
+    } else {
+      alert("You do not have enough gold for that.");
     }
   });
 
-  $("#buyMerc").click(function() {
-    let nameIndex = Math.floor(Math.random() * names.length);
-    let mercName = names[nameIndex];
-    let merc = new Mercenary(mercName);
-    ourCompany.push(merc);
-    displayArmy(ourCompany, mercTier);
+  $("#buyMerc").click(function () {
+    let currentGold = parseInt($("#showIncomeEarnedOnContract").text());
+
+    if (currentGold >= 50) {
+      currentGold -= 50;
+      incomeStatement.aggregateIncome -= 50;
+      $("#showIncomeEarnedOnContract").text(currentGold);
+      let nameIndex = Math.floor(Math.random() * names.length);
+      let mercName = names[nameIndex];
+      let merc = new Mercenary(mercName);
+      ourCompany.push(merc);
+      displayArmy(ourCompany, mercTier);
+    } else {
+      alert("You do not have enough gold for that.");
+    }
   });
   //============================================================
 
@@ -63,11 +80,12 @@ $(document).ready(function () {
     $("#showIncomeEarnedOnContract").html(incomeStatement.aggregateIncome);
 
     const contractArray = ["WereWolf", "Goblin", "Caravan Escort", "Caravan Ambush", "ManHunter", "Soldier", "Ogre", "WarParty"];
+    const enemyArray = ["werewolves", "goblins", "bandits", "caravan guards", "man hunters", "soldiers", "ogres", "knights"];
     for (let i = 0; i < 8; i = i + 1) {
       $("#showOutput" + i).html("");
       $("#showOutput0").append("<h3>" + contractArray[i] + " contracts are here</h3>");
       for (let l = 0; l < jobBoard.ourThreeDimentionalArray[i][0].length; l = l + 1) {
-        $("#showOutput0").append(`<li>Enemies present are ${jobBoard.ourThreeDimentionalArray[i][0][l]} werewolves and the contract is worth ${jobBoard.ourThreeDimentionalArray[i][1][l]}g, with death money valued at ${jobBoard.werewolfDeathMoney} gold. <button class="scb werewolf" id="${i},${l}">Select Contract</button></li>`);
+        $("#showOutput0").append(`<li>Enemies present are ${jobBoard.ourThreeDimentionalArray[i][0][l]} ${enemyArray[i]} and the contract is worth ${jobBoard.ourThreeDimentionalArray[i][1][l]}g, with death money valued at ${jobBoard.werewolfDeathMoney} gold. <button class="scb werewolf" id="${i},${l}">Select Contract</button></li>`);
       }
       // if (i === 0) {
       //   $("#showOutput0").html("");
@@ -133,6 +151,7 @@ $(document).ready(function () {
     let i = this.id.split(",");
     let a = i[0];
     let b = i[1]
+    combat.combatLog = [];
 
     jobBoard.contractClicked[0] = jobBoard.ourThreeDimentionalArray[a][0][b];
     jobBoard.contractClicked[1] = jobBoard.ourThreeDimentionalArray[a][1][b];
@@ -148,7 +167,7 @@ $(document).ready(function () {
       console.log(jobBoard.ourThreeDimentionalArray[a][1][b]);
       jobBoard.contractClicked[2] = jobBoard.werewolfDeathMoney;
       for (let i = 0; i < jobBoard.contractClicked[0]; i++) {
-        let enemy = new Enemy("goblin");
+        let enemy = new Enemy("werewolf");
         filledArray.push(enemy);
       }
     }
@@ -203,10 +222,9 @@ $(document).ready(function () {
     }
     console.log(jobBoard.contractClicked[0]);
     console.log("Number of enemies: " + filledArray.length);
-    $("#combatlog").text("");
-    combat.combatLog = [];
-    
-  console.log (`I am even here or not`);
+    //$("#combatlog").text("");
+
+    console.log(`I am even here or not`);
     incomeStatement.numberOfMercenaries = ourCompany.length;
     let survived = combat.combat(ourCompany, filledArray);
     ourCompany = survived;
@@ -215,7 +233,6 @@ $(document).ready(function () {
     //let ourContractIncome = incomeStatement.calculateIncome(jobBoard.contractClicked, mercSurvived);
     incomeStatement.calculateIncome(jobBoard.contractClicked, mercSurvived); // pl don't remove this line.
     let ourContractIncome = incomeStatement.aggregateIncome; // pl don't remove this line.
-    coinBag = ourContractIncome;
 
     console.log(`Hi we have some income and that is ${ourContractIncome}`);
     $("#showIncomeEarnedOnContract").html(ourContractIncome);
